@@ -1,0 +1,8 @@
+:root{
+
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 350ms;
+
+    --ease-standard: ease-in-out;
+}
