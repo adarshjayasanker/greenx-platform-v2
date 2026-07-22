@@ -1,6 +1,6 @@
 const FloatingButtons = () => {
     return(
-        <div>Floating Buttons</div>
+        <></>
     )
 };
 
