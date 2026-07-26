@@ -19,18 +19,18 @@ export const heroContent = {
     trust: [
         {
             id: "safe",
-            label: "Safe Treatments",
             icon: "shield",
+            label: "Safe Treatments",
         },
         {
             id: "experienced",
+            icon: "users", 
             label: "Experienced Team",
-            icon: "users",
         },
         {
             id: "response",
+            icon: "clock",
             label: "Fast Response",
-            icon: "clock"
         }
     ]
 }

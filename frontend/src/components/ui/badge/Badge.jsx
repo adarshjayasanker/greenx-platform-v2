@@ -1,6 +1,13 @@
-const Badge = ({children, className = ""}) => {
+import clsx from 'clsx';
+
+const variants = {
+    primary: "bg-(--color-primary-100) text-(--color-primary-700)",
+    neutral: "bg-neutral-100 text-neutral-700",
+}
+
+const Badge = ({children, variant = "primary", className = ""}) => {
     return(
-        <span className={`inline-flex items-center rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700 ${className}`}>{children}</span>
+        <span className={clsx("inline-flex items-center rounded-full px-4 py-2 text-sm font-medium", variants[variant], className)}>{children}</span>
     )
 };
 

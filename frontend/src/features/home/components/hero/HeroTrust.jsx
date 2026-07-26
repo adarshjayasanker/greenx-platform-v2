@@ -1,4 +1,5 @@
 import { ShieldCheck, Users, Clock3 } from "lucide-react";
+import FeatureItem from "@/components/ui/featureItem/FeatureItem";
 
 const iconMap = {
     shield: ShieldCheck,
@@ -12,10 +13,7 @@ const HeroTrust = ({items}) => {
             {items.map((item) => {
                 const Icon = iconMap[item.icon];
                 return(
-                    <li key={item.id} className="flex items-center gap-2">
-                        <Icon size={18} className="text-(--color-primary)"/>
-                        <span className="text-sm font-medium text-(--color-text-primary)">{item.label}</span>
-                    </li>
+                    <FeatureItem key={item.id} icon={Icon ? (<Icon size={18} className="text-(--color-primary)"/>) : null}>{item.label}</FeatureItem>
                 )
             })}
         </ul>

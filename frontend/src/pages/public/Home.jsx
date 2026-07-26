@@ -1,11 +1,11 @@
-// import { Navbar } from "../../features/navigation/components/navbar/Navbar";
-
-import {Hero} from "@/features/home";
+import {Hero} from "@/features/home/components/hero";
+import ServicesPreview from "../../features/home/components/servicesPreview/ServicesPreview";
 
 const Home = () => {
     return(
         <>
             <Hero/>
+            <ServicesPreview/>
         </>
     )
 }; 
