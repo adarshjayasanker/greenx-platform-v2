@@ -1,7 +1,9 @@
+import { heroImageConfig } from "../config/hero-image.config";
+
 const HeroImage = () => {
     return(
-        <div className="mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100"></div>
+        <div className="flex aspect-square items-center justify-center rounded-2xl">
+            <img src={heroImageConfig.src} alt={heroImageConfig.alt} className="aspect-4/3 w-full rounded-3xl object-cover shadow-xl"/>
         </div>
     )
 };

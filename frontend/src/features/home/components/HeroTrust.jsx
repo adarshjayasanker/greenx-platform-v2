@@ -1,12 +1,23 @@
+import { ShieldCheck, Users, Clock3 } from "lucide-react";
+
+const iconMap = {
+    shield: ShieldCheck,
+    users: Users,
+    clock: Clock3
+};
+
 const HeroTrust = ({items}) => {
     return(
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3">
-            {items.map((item) => (
-                <li key={item.id} className="flex items-center gap-2 text-sm text-(--color-text-secondary)">
-                    <span className="text-(--color-primary)">✓</span>
-                    <span>{item.label}</span>
-                </li>
-            ))}
+        <ul className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            {items.map((item) => {
+                const Icon = iconMap[item.icon];
+                return(
+                    <li key={item.id} className="flex items-center gap-2">
+                        <Icon size={18} className="text-(--color-primary)"/>
+                        <span className="text-sm font-medium text-(--color-text-primary)">{item.label}</span>
+                    </li>
+                )
+            })}
         </ul>
     )
 };

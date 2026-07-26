@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Container from "../container/Container.jsx";
 
 
-const sizes = {
+const spacingClasses = {
     none: "",
     sm: "py-12",
     md: "py-16",
@@ -11,12 +11,12 @@ const sizes = {
 }
 
 
-const Section = ({as: Component = "section", size = "md", className = "", children}) => {
+const Section = ({as: Component = "section", spacing = "md", className = "", children}) => {
 
-    const sectionSize = sizes[size] || sizes.md;
+    const sectionSpacing = spacingClasses[spacing] ?? spacingClasses.md;
 
     return(
-        <Component className={clsx(sectionSize, className)}>
+        <Component className={clsx(sectionSpacing, className)}>
             <Container>{children}</Container>
         </Component>
     )

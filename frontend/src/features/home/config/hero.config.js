@@ -20,14 +20,17 @@ export const heroContent = {
         {
             id: "safe",
             label: "Safe Treatments",
+            icon: "shield",
         },
         {
             id: "experienced",
             label: "Experienced Team",
+            icon: "users",
         },
         {
             id: "response",
             label: "Fast Response",
+            icon: "clock"
         }
     ]
 }
