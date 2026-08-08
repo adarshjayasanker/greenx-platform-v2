@@ -6,7 +6,7 @@ import { CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const TestimonialCarousel = ({testimonials}) => {
     return(
-        <Carousel options={{align: "start", loop: true}}>
+        <Carousel ariaLabel = "Customer testimonials" options={{align: "start", loop: true}}>
             {({scrollPrev, scrollNext}) => (
                 <>
                     <CarouselContent className="-ml-4">

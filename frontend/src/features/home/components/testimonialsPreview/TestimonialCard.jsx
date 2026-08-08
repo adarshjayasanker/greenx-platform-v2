@@ -6,7 +6,7 @@ import {Quote} from '@/lib/icons';
 
 const TestimonialCard = ({testimonial}) => {
     return(
-        <Card className="group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <Card className="group h-full transition-all duration-300">
             <CardContent className="flex h-full flex-col gap-6">
                 <div className="flex items-start justify-between">
                     <Rating value={testimonial.rating}/>

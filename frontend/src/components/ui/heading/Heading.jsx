@@ -1,13 +1,10 @@
 import clsx from "clsx";
 
-const levels = {
-    display: "text-6xl",
-    1: "text-5xl",
-    2: "text-4xl",
-    3: "text-3xl",
-    4: "text-2xl",
-    5: "text-xl",
-    6: "text-lg",
+const levelStyles = {
+    1: "text-4xl sm:text-5xl lg:text-6xl",
+    2: "text-3xl sm:text-4xl",
+    3: "text-xl",
+    4: "text-lg"
 };
 
 const weights = {
@@ -23,14 +20,32 @@ const aligns = {
     right: "text-right",
 }
 
-const Heading = ({as: Component = "h2", level = 2, weight = "bold", align = "left", className = "", children}) => {
+const leadingStyles = {
+    1: "leading-tight",
+    2: "leading-tight",
+    3: "leading-snug",
+    4: "leading-snug"
+}
 
-    const headingLevel = levels[level] || levels[2];
-    const headingWeight = weights[weight] || weights.bold;
-    const headingAlign = aligns[align] || aligns.left;
+const tones = {
+    default: "text-(--color-text-primary)",
+    inverse: "text-white",
+};
+
+const Heading = ({as: Component, level = 2, weight = "bold", align = "left", tone= "default", className = "", children}) => {
+
+    const headingLevel = levelStyles[level] ?? levelStyles[2];
+    const headingWeight = weights[weight] ?? weights.bold;
+    const headingAlign = aligns[align] ?? aligns.left;
+    const headingLeading = leadingStyles[level] ?? leadingStyles[2];
+    const headingTone = tones[tone] ?? tones.default;
+
+    const semanticLevel = level >= 1 && level <= 6 ? level : 2;
+
+    const Element = Component ?? `h${semanticLevel}`;
 
     return(
-        <Component className={clsx(headingLevel, headingWeight, headingAlign, "text-(--color-text-primary) leading-tight", className)}>{children}</Component>
+        <Element className={clsx(headingLevel, headingWeight, headingAlign, headingLeading, headingTone, "text-(--color-text-primary)", className)}>{children}</Element>
     )
 };
 

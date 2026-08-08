@@ -7,7 +7,7 @@ import GalleryCarousel from "./GalleryCarousel";
 
 const GalleryPreview = () => {
     return(
-        <Section>
+        <Section background="muted">
             <Container>
                 <SectionHeader badge={galleryPreview.badge} title={galleryPreview.title} description={galleryPreview.description} align="center"/>
                 <div className="mt-16">

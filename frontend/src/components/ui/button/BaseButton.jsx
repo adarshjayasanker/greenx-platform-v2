@@ -1,18 +1,16 @@
 import clsx from "clsx";
 
-const base = "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 disabled:cursor-not-allowed disabled: opacity-50";
+const base = "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50";
 
 const variants = {
 
     primary: "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)]",
-
     secondary: "bg-[var(--color-secondary)] text-white",
-
     outline: "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white",
-
     ghost: "text-[var(--color-primary)] hover:bg-gray-100",
-
     danger: "bg-[var(--color-error)] text-white hover:opacity-90",
+    inverse: "bg-white text-[var(--color-primary)] hover:bg-white/90",
+    "inverse-outline": "border border-white bg-transparent text-white hover:bg-white hover:text-[var(--color-primary)]"
 };
 
 const sizes = {

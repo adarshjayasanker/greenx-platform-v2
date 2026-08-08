@@ -9,7 +9,7 @@ const sizes = {
 };
 
 const Container = ({as: Component = "div", size = "xl", className = "", children}) => {
-    const containerSize = sizes[size] || sizes.xl;
+    const containerSize = sizes[size] ?? sizes.xl;
     return(
         <Component className={clsx("mx-auto w-full px-4 sm:px-6 lg:px-8", containerSize, className)}>{children}</Component>
     )

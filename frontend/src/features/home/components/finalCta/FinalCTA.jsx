@@ -9,16 +9,16 @@ import { AnchorButton } from "@/components/ui/button";
 
 const FinalCTA = () => {
     return(
-        <Section>
+        <Section background="brand">
             <Container>
                 <div className="overflow-hidden rounded-3xl bg-var(--color-primary) px-6 py-16 text-center sm:px-10 lg:px-16 lg:py-20">
                     <div className="mx-auto flex max-w-3xl flex-col items-center gap-6">
-                        <Badge variant="neutral">{finalCta.badge}</Badge>
-                        <Heading level={2}>{finalCta.title}</Heading>
-                        <Text className="max-w-2xl">{finalCta.description}</Text>
+                        <Badge variant="inverse">{finalCta.badge}</Badge>
+                        <Heading level={2} tone="inverse">{finalCta.title}</Heading>
+                        <Text variant = "lead" tone = "inverse" className="max-w-2xl">{finalCta.description}</Text>
                         <div className="mt-2 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-                            <LinkButton to={finalCta.primaryAction.to} variant="secondary">{finalCta.primaryAction.label}</LinkButton>
-                            <AnchorButton href={finalCta.secondaryAction.href} variant="outline">{finalCta.secondaryAction.label}</AnchorButton>
+                            <LinkButton to={finalCta.primaryAction.to} variant="inverse">{finalCta.primaryAction.label}</LinkButton>
+                            <AnchorButton href={finalCta.secondaryAction.href} variant="inverse-outline">{finalCta.secondaryAction.label}</AnchorButton>
                         </div>
                     </div>
                 </div>

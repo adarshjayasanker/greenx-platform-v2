@@ -1,7 +1,7 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback } from 'react';
 
-const Carousel = ({children, options={}, className=""}) => {
+const Carousel = ({children, options={}, ariaLabel, className=""}) => {
 
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -14,7 +14,7 @@ const Carousel = ({children, options={}, className=""}) => {
     }, [emblaApi]);
 
     return(
-        <div className={`relative ${className}`}>
+        <div className={`relative ${className}`} role='region' aria-roledescription='carousel' aria-label={ariaLabel}>
             <div ref={emblaRef} className='overflow-hidden'>
                 {children({
                     emblaApi, scrollPrev, scrollNext
