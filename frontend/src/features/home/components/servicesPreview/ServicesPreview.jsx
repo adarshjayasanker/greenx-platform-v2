@@ -1,9 +1,8 @@
-import { Grid } from "lucide-react";
 import Container from "../../../../components/ui/container";
 import Section from "../../../../components/ui/section/Section";
 import SectionHeader from "../../../../components/ui/sectionHeader/SectionHeader";
 import ServiceCard from "./ServiceCard";
-import { servicesPreview } from "./config/services-preview.config";
+import { servicesPreview } from "../../config/services-preview.config";
 import { LinkButton } from "../../../../components/ui/button";
 
 const ServicesPreview = () => {

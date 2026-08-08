@@ -2,7 +2,7 @@ import Container from "../../../../components/ui/container";
 import Section from "../../../../components/ui/section/Section";
 import SectionHeader from "../../../../components/ui/sectionHeader/SectionHeader";
 import BenefitCard from "./BenefitCard";
-import { whyChooseUs } from "./config/why-choose-us.config";
+import { whyChooseUs } from "../../config/why-choose-us.config";
 
 const WhyChooseUs = () => {
     return(

@@ -1,6 +1,6 @@
 import Container from "../../../../components/ui/container";
 import Section from "../../../../components/ui/section/Section";
-import { heroContent } from "./config/hero.config";
+import { heroContent } from "../../config/hero.config";
 import HeroContent from "./HeroContent";
 import HeroImage from "./HeroImage";
 

@@ -1,7 +1,7 @@
 import { Section } from "@/components/ui/section";
 import Container from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
-import { finalCta } from "./config/final-cta.config";
+import { finalCta } from "../../config/final-cta.config";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { LinkButton } from "@/components/ui/button";

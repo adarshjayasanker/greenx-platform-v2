@@ -1,4 +1,4 @@
-import heroImageJpg from '../../../../../assets/images/hero-image.jpg'
+import heroImageJpg from '../../../assets/images/hero-image.jpg'
 
 export const heroImageConfig = {
     src: heroImageJpg,

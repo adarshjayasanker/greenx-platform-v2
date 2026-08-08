@@ -1,7 +1,7 @@
 import { Section } from "@/components/ui/section";
 import Container from "@/components/ui/container";
 import SectionHeader from "@/components/ui/sectionHeader";
-import { galleryPreview } from "./config/gallery-preview.config";
+import { galleryPreview } from "../../config/gallery-preview.config";
 import GalleryImage from "./GalleryImage";
 import { LinkButton } from "@/components/ui/button";
 

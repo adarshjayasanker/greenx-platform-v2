@@ -1,4 +1,4 @@
-import { heroImageConfig } from "./config/hero-image.config";
+import { heroImageConfig } from "../../config/hero-image.config";
 
 const HeroImage = () => {
     return(
