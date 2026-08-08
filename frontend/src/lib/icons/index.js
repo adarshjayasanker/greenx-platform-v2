@@ -1,1 +1,1 @@
-export {ShieldCheck, Clock3, Leaf, Phone, Mail, MapPin, ChevronRight, ArrowRight, Check, Star, Menu, X} from 'lucide-react';
+export {ShieldCheck, Quote, Clock3, Leaf, Phone, Mail, MapPin, ChevronRight, ArrowRight, Check, Star, Menu, X} from 'lucide-react';
