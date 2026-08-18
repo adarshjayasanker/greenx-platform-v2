@@ -20,6 +20,7 @@ import AdminTestimonials from "../pages/admin/AdminTestimonials";
 import Leads from "../pages/admin/Leads";
 import Settings from "../pages/admin/Settings";
 import ErrorPage from "../pages/error/ErrorPage";
+import ServiceDetail from "../pages/public/ServiceDetail";
 
 
 const router = createBrowserRouter(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
                     <Route index element={<Home/>}/>
                     <Route path="about" element={<About/>}/>
                     <Route path="services" element={<Services/>}/>
+                    <Route path="services/:slug" element = {<ServiceDetail/>}/>
                     <Route path="gallery" element={<Gallery/>}/>
                     <Route path="testimonials" element={<Testimonials/>}/>
                     <Route path="contact" element={<Contact/>}/>
