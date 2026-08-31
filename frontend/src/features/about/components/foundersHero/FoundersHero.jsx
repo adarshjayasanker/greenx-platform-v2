@@ -1,4 +1,4 @@
-import {Section} from "@/components/ui/section";
+import Section from "@/components/ui/section";
 import {Heading} from "@/components/ui/heading";
 import {Text} from "@/components/ui/text";
 import {Badge} from "@/components/ui/badge";
@@ -15,7 +15,6 @@ const FoundersHero = () => {
 
     return (
         <Section spacing="lg">
-            {/* Founders Image */}
             <div className="mx-auto max-w-4xl">
                 <div className="relative h-75 overflow-hidden rounded-2xl sm:h-95 lg:h-110">
                     <img
