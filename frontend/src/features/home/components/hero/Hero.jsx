@@ -1,5 +1,5 @@
 import Container from "@/components/ui/container";
-import Section from "@/components/ui/section";
+import {Section} from "@/components/ui/section";
 import { heroContent } from "../../config/hero.config";
 import HeroContent from "./HeroContent";
 import HeroImage from "./HeroImage";
