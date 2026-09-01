@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Container from "../container";
 
 const spacingClasses = {
     none: "",
@@ -22,7 +23,9 @@ const Section = ({as: Component = "section", spacing = "md", background = "defau
     const sectionBackground = backgrounds[background] ?? backgrounds.default;
 
     return(
-        <Component className={clsx(sectionSpacing, sectionBackground, className)}>{children}</Component>
+        <Component className={clsx(sectionSpacing, sectionBackground, className)}>
+            <Container>{children}</Container>
+        </Component>
     )
 };
 

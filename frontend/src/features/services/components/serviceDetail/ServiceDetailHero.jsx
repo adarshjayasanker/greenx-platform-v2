@@ -1,4 +1,3 @@
-import Container from "../../../../components/ui/container";
 import Section from "../../../../components/ui/section/Section";
 import IconBadge from '@/components/ui/iconBadge';
 import {Heading} from '@/components/ui/heading';
@@ -10,7 +9,6 @@ const ServiceDetailHero = ({service}) => {
 
     return(
         <Section spacing="lg">
-            <Container>
                 <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
                     {Icon && (
                         <IconBadge size="lg">
@@ -20,7 +18,6 @@ const ServiceDetailHero = ({service}) => {
                     <Heading level={1} className="mt-6">{service.title}</Heading>
                     <Text variant="lead" className="mt-5 max-w-2xl">{service.description}</Text>
                 </div>
-            </Container>
         </Section>
     )
 };

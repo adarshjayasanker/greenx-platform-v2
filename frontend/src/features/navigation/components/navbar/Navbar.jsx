@@ -39,7 +39,7 @@ const Navbar = () => {
                     
                 </div>
             </Container>
-            <MobileNav isOpen={isOpen} items={navigationItems} actions={navigationActions} onNavigate={toggleMenu}/>
+            <MobileNav isOpen={isOpen} items={navigationItems} actions={navigationActions} onNavigate={closeMenu}/>
         </header>
     )
 };

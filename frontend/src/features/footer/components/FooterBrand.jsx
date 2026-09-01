@@ -5,7 +5,7 @@ const FooterBrand = () => {
     return(
         <div className="space-y-4">
             <AppLogo/>
-            <Text className="max-w-sm text-sm leading-6 text-(--color-text-secondary)">
+            <Text className="max-w-sm text-sm leading-6 text-neutral-400">
                 Professional Pest Control and Bird Netting Solutions committed to creating safer, healthier, and pest-free environments across Kerala
             </Text>
         </div>

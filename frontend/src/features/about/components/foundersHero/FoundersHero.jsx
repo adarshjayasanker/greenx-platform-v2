@@ -4,14 +4,12 @@ import {Text} from "@/components/ui/text";
 import {Badge} from "@/components/ui/badge";
 
 import { aboutPage } from "../../config/about-page.config";
-import Container from "../../../../components/ui/container";
 
 const FoundersHero = () => {
     const {badge, title, description, foundersImage} = aboutPage.hero;
 
     return (
         <Section spacing="lg">
-            <Container>
                 <div className="mx-auto max-w-5xl">
                     <div className="relative h-95 overflow-hidden rounded-2xl sm:h-115 lg:h-130">
                         <img src={foundersImage.src} alt={foundersImage.alt} className="h-full w-full object-cover object-center" />
@@ -23,7 +21,6 @@ const FoundersHero = () => {
                     <Heading level={1}>{title}</Heading>
                     <Text variant="lead" className="max-w-2xl">{description}</Text>
                 </div>
-            </Container>
         </Section>
     );
 };

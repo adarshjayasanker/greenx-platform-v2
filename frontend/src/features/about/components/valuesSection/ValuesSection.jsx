@@ -6,7 +6,6 @@ import {Badge} from '@/components/ui/badge';
 import {ShieldCheck, Check, Leaf} from '@/lib/icons';
 
 import { aboutPage } from "../../config/about-page.config";
-import Container from '../../../../components/ui/container';
 
 const iconMap = {
     ShieldCheck,
@@ -20,7 +19,6 @@ const ValuesSection = () => {
 
     return(
         <Section spacing="lg" className="bg-(--color-background-muted)">
-            <Container>
                 <div className='mx-auto max-w-3xl text-center'>
                     <div className='flex flex-col items-center gap-5'>
                         <Badge>{badge}</Badge>
@@ -46,7 +44,6 @@ const ValuesSection = () => {
                         )
                     })}
                 </div>
-            </Container>
         </Section>
     )
 };

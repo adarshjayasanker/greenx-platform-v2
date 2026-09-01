@@ -5,7 +5,7 @@ import { AnchorButton, LinkButton } from "../../../../components/ui/button";
 const MobileNav = ({isOpen, items, actions, onNavigate,}) => {
     return(
         <div id="mobile-navigation" className={clsx("overflow-hidden border-t border-(--color-border) transition-all duration-300 md:hidden", isOpen ? "max-h-screen" : "max-h-0")}>
-            <nav className="flex flex-col px-6 py-6" aria-label="mobile-navigation">
+            <nav className="flex flex-col px-6 py-6" aria-label="Primary navigation">
                 <div className="flex flex-col gap-4">
                     {items.map(({id, label, to}) => (
                         <NavigationItem key={id} label={label} to={to} onClick={onNavigate}/>

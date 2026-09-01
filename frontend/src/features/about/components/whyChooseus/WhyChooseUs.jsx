@@ -7,7 +7,7 @@ import {Badge} from '@/components/ui/badge';
 import { aboutPage } from "../../config/about-page.config";
 
 import {Check} from '@/lib/icons';
-import Container from '../../../../components/ui/container';
+
 
 const WhyChooseUs = () => {
 
@@ -15,7 +15,6 @@ const WhyChooseUs = () => {
 
     return(
         <Section spacing="lg">
-            <Container>
                 <div className='grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20'>
                     <div className='max-w-xl'>
                         <div className='flex flex-col gap-5'>
@@ -38,7 +37,6 @@ const WhyChooseUs = () => {
                         ))}
                     </div>
                 </div>
-            </Container>
         </Section>
     )
 };

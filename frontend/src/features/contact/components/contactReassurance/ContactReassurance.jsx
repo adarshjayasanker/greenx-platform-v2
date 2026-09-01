@@ -1,6 +1,7 @@
 import {Heading} from "@/components/ui/heading";
 import {Text} from "@/components/ui/text";
 import {AnchorButton} from "@/components/ui/button";
+import {Section} from '@/components/ui/section';
 
 import {Phone, ArrowRight} from '@/lib/icons';
 
@@ -9,7 +10,7 @@ import { contact } from "../../../../data/contact";
 const ContactReassurance = () => {
 
     return(
-        <section className="pb-20 sm:pb-24">
+        <Section className="lg">
             <div className="rounded-2xl bg-(--color-surface) px-6 py-8 sm:px-8 lg:flex lg:items-center lg:justify-between lg:gap-12">
                 <div className="max-w-2xl">
                     <Heading level={3}>Prefer to talk directly?</Heading>
@@ -19,10 +20,10 @@ const ContactReassurance = () => {
                     <AnchorButton href={contact.phone.value} variant="primary">
                         <Phone size={18}/> Call Us
                     </AnchorButton>
-                    <AnchorButton href={contact.whatsapp.href} variant="outline">WhatsApp Us<ArrowRight size={18}/></AnchorButton>
+                    <AnchorButton href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" variant="outline">WhatsApp Us<ArrowRight size={18}/></AnchorButton>
                 </div>
             </div>
-        </section>
+        </Section>
     )
 };
 

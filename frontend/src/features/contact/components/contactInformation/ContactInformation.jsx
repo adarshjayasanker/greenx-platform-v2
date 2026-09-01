@@ -28,8 +28,8 @@ const ContactInformation = () => {
                                         <Icon size={21}/>
                                     </div>
                                     <div className="min-w-0">
-                                        <p className="text-sm font-medium text-(--color-text-secondary)">{item.label}</p>
-                                        <p className="mt-1 wrap-break-word font-medium text-(--color-text-primary)">{item.value}</p>
+                                        <Text level="small" weight="medium">{item.label}</Text>
+                                        <Text weight="medium" className="mt-1 wrap-break-word">{item.value}</Text>
                                     </div>
                                 </div>
                             );

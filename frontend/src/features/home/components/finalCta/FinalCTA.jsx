@@ -1,5 +1,4 @@
 import { Section } from "@/components/ui/section";
-import Container from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { finalCta } from "../../config/final-cta.config";
 import { Heading } from "@/components/ui/heading";
@@ -10,7 +9,6 @@ import { AnchorButton } from "@/components/ui/button";
 const FinalCTA = () => {
     return(
         <Section background="brand">
-            <Container>
                 <div className="overflow-hidden rounded-3xl bg-var(--color-primary) px-6 py-16 text-center sm:px-10 lg:px-16 lg:py-20">
                     <div className="mx-auto flex max-w-3xl flex-col items-center gap-6">
                         <Badge variant="inverse">{finalCta.badge}</Badge>
@@ -22,7 +20,6 @@ const FinalCTA = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
         </Section>
     )
 };

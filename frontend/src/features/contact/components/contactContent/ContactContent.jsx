@@ -1,5 +1,4 @@
 import {Section} from '@/components/ui/section';
-import Container from '../../../../components/ui/container';
 import ContactInformation from '../contactInformation';
 import EnquiryForm from '../enquiryForm';
 
@@ -7,12 +6,10 @@ const ContactContent = () => {
 
     return(
         <Section spacing="lg">
-            <Container>
                 <div className='grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16'>
                     <ContactInformation/>
                     <EnquiryForm/>
                 </div>
-            </Container>
         </Section>
     )
 };

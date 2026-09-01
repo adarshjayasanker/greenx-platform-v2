@@ -4,7 +4,6 @@ import {Section} from '@/components/ui/section';
 import {Heading} from '@/components/ui/heading';
 import {Text} from '@/components/ui/text';
 import {Badge} from '@/components/ui/badge';
-import Container from "../../../../components/ui/container";
 
 const CompanyStory = () => {
 
@@ -12,7 +11,6 @@ const CompanyStory = () => {
 
     return(
         <Section spacing="lg">
-            <Container>
                 <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
                     <div className="max-w-xl">
                         <div className="flex flex-col gap-5">
@@ -31,7 +29,6 @@ const CompanyStory = () => {
                         </div>
                     )} */}
                 </div>
-            </Container>
         </Section>
     )
 };

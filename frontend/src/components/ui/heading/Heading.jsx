@@ -45,7 +45,7 @@ const Heading = ({as: Component, level = 2, weight = "bold", align = "left", ton
     const Element = Component ?? `h${semanticLevel}`;
 
     return(
-        <Element className={clsx(headingLevel, headingWeight, headingAlign, headingLeading, headingTone, "text-(--color-text-primary)", className)}>{children}</Element>
+        <Element className={clsx(headingLevel, headingWeight, headingAlign, headingLeading, headingTone, className)}>{children}</Element>
     )
 };
 

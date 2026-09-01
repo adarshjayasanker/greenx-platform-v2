@@ -11,7 +11,7 @@ const NavigationItem = ({ label, to, onClick, className = "" }) => {
                 
                     clsx(
                         "inline-flex items-center rounded-md py-2 text-sm font-medium transition-colors duration-200",
-                        "rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-primary) focus-visible:ring-offset-2",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-primary) focus-visible:ring-offset-2",
                     isActive
                         ? "text-(--color-primary)"
                         : "text-(--color-text-primary) hover:text-(--color-primary)",

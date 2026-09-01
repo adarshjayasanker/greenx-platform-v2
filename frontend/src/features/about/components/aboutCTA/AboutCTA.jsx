@@ -6,7 +6,6 @@ import {LinkButton} from '@/components/ui/button';
 
 
 import { aboutPage } from "../../config/about-page.config";
-import Container from '../../../../components/ui/container';
 
 const AboutCTA = () => {
 
@@ -14,7 +13,6 @@ const AboutCTA = () => {
 
     return(
         <Section spacing="lg" background="brand">
-            <Container>
                 <div className='mx-auto flex max-w-3xl flex-col items-center text-center'>
                     <Badge variant="inverse">{badge}</Badge>
                     <Heading level={2} className="mt-5 text-white">{title}</Heading>
@@ -23,7 +21,6 @@ const AboutCTA = () => {
                         <LinkButton to={action.to} variant={action.variant}>{action.label}</LinkButton>
                     </div>
                 </div>
-            </Container>
         </Section>
     )
 };
