@@ -1,8 +1,10 @@
+import Enquiry from "../models/enquiry.model.js";
+
 const enquiryServices = {
 
-    createEnquiry: (data) => {
-        console.log("Received enquiry:", data);
-        return data;
+    createEnquiry: async(data) => {
+        const enquiry = await Enquiry.create(data);
+        return enquiry;
     }
 };
 
