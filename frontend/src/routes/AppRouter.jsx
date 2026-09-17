@@ -7,8 +7,8 @@ import AdminLayout from "../layouts/AdminLayout";
 import Home from "../pages/public/Home";
 import About from "../pages/public/About";
 import Services from "../pages/public/Services";
-import Gallery from "../pages/public/Gallery";
-import Testimonials from "../pages/public/Testimonials";
+// import Gallery from "../pages/public/Gallery";
+// import Testimonials from "../pages/public/Testimonials";
 import Contact from "../pages/public/Contact";
 import Notfound from "../pages/error/Notfound";
 
@@ -32,8 +32,8 @@ const router = createBrowserRouter(
                     <Route path="about" element={<About/>}/>
                     <Route path="services" element={<Services/>}/>
                     <Route path="services/:slug" element = {<ServiceDetail/>}/>
-                    <Route path="gallery" element={<Gallery/>}/>
-                    <Route path="testimonials" element={<Testimonials/>}/>
+                    {/* <Route path="gallery" element={<Gallery/>}/>
+                    <Route path="testimonials" element={<Testimonials/>}/> */}
                     <Route path="contact" element={<Contact/>}/>
                 </Route>
 

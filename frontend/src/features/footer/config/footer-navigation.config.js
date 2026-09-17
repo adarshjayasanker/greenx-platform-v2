@@ -14,16 +14,16 @@ export const footerNavigation = [
         label: "About",
         to: "/about",
     },
-    {
-        id: "gallery",
-        label: "Gallery",
-        to: "/gallery",
-    },
-    {
-        id: "testimonials",
-        label: "Testimonials",
-        to: "/testimonials",
-    },
+    // {
+    //     id: "gallery",
+    //     label: "Gallery",
+    //     to: "/gallery",
+    // },
+    // {
+    //     id: "testimonials",
+    //     label: "Testimonials",
+    //     to: "/testimonials",
+    // },
     {
         id: "contact",
         label: "Contact",

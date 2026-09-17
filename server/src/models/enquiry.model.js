@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { ENQUIRY_STATUSES } from '../constants/enquiry.constants.js';
 
 const enquirySchema = new mongoose.Schema(
     {
@@ -29,13 +30,7 @@ const enquirySchema = new mongoose.Schema(
 
         status: {
             type: String,
-            enum: [
-                "new",
-                "contacted",
-                "in-progress",
-                "converted",
-                "closed",
-            ],
+            enum: ENQUIRY_STATUSES,
             default: "new",
         },
 
@@ -49,6 +44,15 @@ const enquirySchema = new mongoose.Schema(
         timestamps: true
     }
 );
+
+enquirySchema.index({
+    createdAt: -1,
+})
+
+enquirySchema.index({
+    status: 1,
+    createdAt: -1,
+})
 
 const Enquiry = mongoose.model("Enquiry", enquirySchema);
 

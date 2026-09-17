@@ -1,3 +1,5 @@
+import enquiryApi from "../../../../api/enquiry.api";
+
 import {Heading} from "@/components/ui/heading";
 import {Text} from "@/components/ui/text";
 import {Button} from "@/components/ui/button";
@@ -7,6 +9,7 @@ import {Input, Select, Textarea} from '@/components/ui/form';
 import { contactPage } from "../../config/contact-page.config";
 import { useState } from "react";
 import { Field } from "@/components/ui/form";
+import apiError from "../../../../utils/api-error";
 
 const initialFormData = {
     name: "",
@@ -74,13 +77,20 @@ const EnquiryForm = () => {
         setSubmitStatus(null);
         setIsSubmitting(true);
         try{
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-            console.log("Validated form data:", formData);
+            await enquiryApi.createEnquiry(formData);
             setSubmitStatus("success");
             setFormData(initialFormData);
+            setErrors({});
         }catch(error){
-            console.error("Enquiry submission failed:", error);
-            setSubmitStatus("error");            
+            console.error(error);
+            const fieldErrors = apiError.getApiFieldErrors(error);
+            if(Object.keys(fieldErrors).length > 0){
+                setErrors(fieldErrors);
+            }
+            setSubmitStatus({
+                type: "error",
+                message: apiError.getApiErrorMessage(error),
+            });            
         }finally{
             setIsSubmitting(false);
         }

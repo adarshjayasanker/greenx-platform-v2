@@ -3,20 +3,20 @@ export const footerContact = [
         id: "phone",
         type: "phone",
         label: "Phone",
-        value: "+91 8714593851",
-        href: "tel:+918714593851",
+        value: "+91 8714205474",
+        href: "tel:+918714205474",
     },
     {
         id: "email",
         type: "email",
         label: "Email",
-        value: "adrsh1369@gmail.com",
-        href: "mailto:adrsh1369@gmail.com"
+        value: "greenxpcs@gmail.com",
+        href: "mailto:greenxpcs@gmail.com"
     },
     {
         id: "location",
         type: "location",
         label: "Location",
-        value: "Ernakulam"
+        value: "49/154, First Floor, Mahakavi Vailopalli Road, behind Golds Gym, Vyttila, Kochi, 682019"
     }
 ]
