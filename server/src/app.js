@@ -10,6 +10,8 @@ import notFound from './middleware/not-found.middleware.js';
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 app.use(requestId);
 app.use(cors({
     origin: process.env.FRONTEND_URL,
