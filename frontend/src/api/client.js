@@ -5,6 +5,7 @@ const apiClient = async(path, options = {}) => {
     try{
         response = await fetch(`${API_BASE_URL}${path}`, {
             ...options,
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json",
                 ...(options.headers || {}),

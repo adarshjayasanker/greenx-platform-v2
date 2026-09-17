@@ -12,14 +12,11 @@ import Notfound from "../pages/error/Notfound";
 
 import Login from "../pages/admin/Login";
 import Dashboard from "../pages/admin/Dashboard";
-import AdminServices from "../pages/admin/AdminServices";
-import AdminGallery from "../pages/admin/AdminGallery";
-import AdminTestimonials from "../pages/admin/AdminTestimonials";
-import Leads from "../pages/admin/Leads";
-import Settings from "../pages/admin/Settings";
 import ErrorPage from "../pages/error/ErrorPage";
 import ServiceDetail from "../pages/public/ServiceDetail";
 import RootLayout from "../layouts/RootLayout";
+import RequireAuth from "./RequireAuth";
+import Enquiries from "../pages/admin/Enquiries";
 
 
 const router = createBrowserRouter(
@@ -31,8 +28,6 @@ const router = createBrowserRouter(
                     <Route path="about" element={<About/>}/>
                     <Route path="services" element={<Services/>}/>
                     <Route path="services/:slug" element = {<ServiceDetail/>}/>
-                    {/* <Route path="gallery" element={<Gallery/>}/>
-                    <Route path="testimonials" element={<Testimonials/>}/> */}
                     <Route path="contact" element={<Contact/>}/>
                 </Route>
 
@@ -40,13 +35,11 @@ const router = createBrowserRouter(
                     <Route index element={<Login/>}/>
                 </Route>
 
-                <Route path="/greenx-admin" element={<AdminLayout/>}>
-                    <Route path="dashboard" element={<Dashboard/>}/>
-                    <Route path="services" element={<AdminServices/>}/>
-                    <Route path="gallery" element={<AdminGallery/>}/>
-                    <Route path="testimonials" element={<AdminTestimonials/>}/>
-                    <Route path="leads" element={<Leads/>}/>
-                    <Route path="settings" element={<Settings/>}/>
+                <Route path="/greenx-admin" element={<RequireAuth/>}>
+                    <Route element={<AdminLayout/>}>
+                        <Route path="dashboard" element={<Dashboard/>}/>
+                        <Route path="enquiries" element={<Enquiries/>}/>
+                    </Route>
                 </Route>
 
                 <Route path="*" element={<Notfound/>}/>
