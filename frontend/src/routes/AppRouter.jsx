@@ -7,8 +7,6 @@ import AdminLayout from "../layouts/AdminLayout";
 import Home from "../pages/public/Home";
 import About from "../pages/public/About";
 import Services from "../pages/public/Services";
-// import Gallery from "../pages/public/Gallery";
-// import Testimonials from "../pages/public/Testimonials";
 import Contact from "../pages/public/Contact";
 import Notfound from "../pages/error/Notfound";
 
@@ -21,12 +19,13 @@ import Leads from "../pages/admin/Leads";
 import Settings from "../pages/admin/Settings";
 import ErrorPage from "../pages/error/ErrorPage";
 import ServiceDetail from "../pages/public/ServiceDetail";
+import RootLayout from "../layouts/RootLayout";
 
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
-            <Route errorElement={<ErrorPage/>}>
+            <Route element={<RootLayout/>} errorElement={<ErrorPage/>}>
                 <Route path="/" element={<PublicLayout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="about" element={<About/>}/>
