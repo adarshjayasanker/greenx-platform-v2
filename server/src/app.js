@@ -12,9 +12,19 @@ const app = express();
 
 app.set("trust proxy", 1);
 
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    process.env.FRONTEND_PREVIEW_URL,
+].filter(Boolean);
+
 app.use(requestId);
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: (origin, callback) => {
+        if(!origin || allowedOrigins.includes(origin)){
+            return callback(null, true);
+        }
+        return callback(new Error("Origin not allowed by CORS"));
+    },
     credentials: true,
 }));
 app.use(express.json());
