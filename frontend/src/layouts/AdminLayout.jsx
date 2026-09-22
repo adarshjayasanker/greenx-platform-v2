@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/layout/Sidebar/Sidebar";
+import Sidebar from "../components/layout/Sidebar/Sidebar.jsx";
 import Topbar from "../components/layout/Topbar/Topbar";
 
 const AdminLayout = () => {
     return(
-        <div className="min-h-screen flex">
+        <div className="flex min-h-screen bg-gray-50">
             <Sidebar/>
-            <div className="flex-1 flex flex-col">
+            <div className="flex min-w-0 flex-1 flex-col">
                 <Topbar/>
                 <main className="flex-1 p-6">
                     <Outlet/>

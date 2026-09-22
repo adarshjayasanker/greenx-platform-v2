@@ -31,9 +31,12 @@ const LoginForm = () => {
         setIsSubmitting(true);
 
         try{
-            await login(formData);
+            const response = await login(formData);
+            console.log("LOGIN SUCCESS:", response);
+            console.log("REDIRECT TARGET:", from);
             navigate(from, {replace: true});
         }catch(error){
+            console.error("LOGIN ERROR:", error);
             setError(error?.message || "Unable to sign in. Please check your credentials.");
         }finally{
             setIsSubmitting(false);

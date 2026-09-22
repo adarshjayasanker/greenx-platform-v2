@@ -9,7 +9,8 @@ const AuthProvider = ({children}) => {
         const restoreSession = async() => {
             try{
                 const response = await authApi.getCurrentAdmin();
-                setAdmin(response.admin);
+                console.log(response, "Current Admin response")
+                setAdmin(response.data);
             }catch{
                 setAdmin(null);
             }finally{
@@ -21,7 +22,8 @@ const AuthProvider = ({children}) => {
 
     const login = async(credentials) => {
         const response = await authApi.login(credentials);
-        setAdmin(response.admin);
+        console.log(response, "Login response");
+        setAdmin(response.cookie);
         return response;
     };
 

@@ -7,4 +7,33 @@ const createEnquiry = async(enquiryData) => {
     });
 };
 
-export default {createEnquiry};
+const getEnquiries = async({
+    page = 1,
+    limit = 20,
+    status = "",
+    search = "",
+} = {}) => {
+    const params = new URLSearchParams();
+    params.set("page", page);
+    params.set("limit", limit);
+    if(status){
+        params.set("status", status);
+    }
+    if(search){
+        params.set("search", search);
+    }
+    return apiClient(`/enquiry?${params.toString()}`);
+};
+
+const getEnquiryById = async(id) => {
+    return apiClient(`/enquiry/${id}`);
+}
+
+const updateEnquiryStatus = async(id, status) => {
+    return apiClient(`/enquiry/${id}/status`, {
+        method: "PATCH",
+        body: JSON.stringify({status}),
+    });
+};
+
+export default {createEnquiry, getEnquiries, getEnquiryById, updateEnquiryStatus};
