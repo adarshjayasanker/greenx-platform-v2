@@ -24,7 +24,7 @@ const AuthProvider = ({children}) => {
         await authApi.login(credentials);
         const response = await authApi.getCurrentAdmin();
         console.log(response, "Login response");
-        setAdmin(response.cookie);
+        setAdmin(response.data);
         return response;
     };
 
