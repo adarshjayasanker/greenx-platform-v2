@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from "react-router-dom";
 
 import PublicLayout from "../layouts/PublicLayout";
 import AuthLayout from "../layouts/AuthLayout";
@@ -38,6 +38,7 @@ const router = createBrowserRouter(
 
                 <Route path="/greenx-admin" element={<RequireAuth/>}>
                     <Route element={<AdminLayout/>}>
+                        <Route index element={<Navigate to="dashboard" replace />}/>
                         <Route path="dashboard" element={<Dashboard/>}/>
                         <Route path="leads" element={<Enquiries/>}/>
                         <Route path="lead/:id" element={<EnquiryDetails/>}/>
