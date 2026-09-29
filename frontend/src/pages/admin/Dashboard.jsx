@@ -53,7 +53,7 @@ const Dashboard = () => {
             <section className="rounded-lg border border-gray-200 bg-white">
                 <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
                     <h2 className="text-lg font-semibold text-gray-900">Recent Enquiries</h2>
-                    <Link to='/greenx-admin/enquiries' className="text-sm font-medium text-gray-700 hover:text-gray-900">View all</Link>
+                    <Link to='/greenx-admin/leads' className="text-sm font-medium text-gray-700 hover:text-gray-900">View all</Link>
                 </div>
                 <div className="divide-y divide-gray-200">
                     {overview.recentEnquiries.length === 0 ? (
