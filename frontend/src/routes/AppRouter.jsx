@@ -41,7 +41,7 @@ const router = createBrowserRouter(
                         <Route index element={<Navigate to="dashboard" replace />}/>
                         <Route path="dashboard" element={<Dashboard/>}/>
                         <Route path="leads" element={<Enquiries/>}/>
-                        <Route path="lead/:id" element={<EnquiryDetails/>}/>
+                        <Route path="leads/:id" element={<EnquiryDetails/>}/>
                     </Route>
                 </Route>
 
