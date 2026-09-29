@@ -17,6 +17,7 @@ import ServiceDetail from "../pages/public/ServiceDetail";
 import RootLayout from "../layouts/RootLayout";
 import RequireAuth from "./RequireAuth";
 import Enquiries from "../pages/admin/Enquiries";
+import EnquiryDetails from "../pages/admin/EnquiryDetails";
 
 
 const router = createBrowserRouter(
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
                     <Route element={<AdminLayout/>}>
                         <Route path="dashboard" element={<Dashboard/>}/>
                         <Route path="enquiries" element={<Enquiries/>}/>
+                        <Route path="enquiries/:id" element={<EnquiryDetails/>}/>
                     </Route>
                 </Route>
 

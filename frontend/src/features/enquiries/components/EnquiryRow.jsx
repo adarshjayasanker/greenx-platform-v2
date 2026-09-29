@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import EnquiryStatusBadge from "./EnquiryStatusBadge";
 
 const EnquiryRow = ({enquiry}) => {
@@ -5,7 +6,7 @@ const EnquiryRow = ({enquiry}) => {
         <tr className="border-b border-gray-100 last:border-b-0">
             <td className="px-4 py-4">
                 <div>
-                    <p className="font-medium text-gray-900">{enquiry.name}</p>
+                    <Link to={`/greenx-admin/enquiries/${enquiry.id}`} className="font-medium text-gray-900 hover:underline">{enquiry.name}</Link>
                     <p className="mt-1 text-sm text-gray-500">{enquiry.email}</p>
                 </div>
             </td>

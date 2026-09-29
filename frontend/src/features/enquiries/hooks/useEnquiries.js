@@ -19,6 +19,7 @@ const useEnquiries = ({
         let isCancelled = false;
 
         const loadEnquiries = async() => {
+            setIsLoading(true);
             try{
                 const response = await enquiryApi.getEnquiries({page, limit, status, search,});
                 if(isCancelled){
@@ -44,7 +45,8 @@ const useEnquiries = ({
             isCancelled = true;
         };
     }, [page, limit, status, search]);
-    return{enquiries, total, isLoading, error};
+    const totalPages = Math.ceil(total/limit);
+    return{enquiries, total, totalPages, isLoading, error};
 }
 
 export default useEnquiries;

@@ -22,6 +22,12 @@ const enquirySchema = new mongoose.Schema(
             lowercase: true,
         },
 
+        service: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+
         message: {
             type: String,
             required: true,
