@@ -39,8 +39,8 @@ const router = createBrowserRouter(
                 <Route path="/greenx-admin" element={<RequireAuth/>}>
                     <Route element={<AdminLayout/>}>
                         <Route path="dashboard" element={<Dashboard/>}/>
-                        <Route path="enquiries" element={<Enquiries/>}/>
-                        <Route path="enquiries/:id" element={<EnquiryDetails/>}/>
+                        <Route path="leads" element={<Enquiries/>}/>
+                        <Route path="lead/:id" element={<EnquiryDetails/>}/>
                     </Route>
                 </Route>
 

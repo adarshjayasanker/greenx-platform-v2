@@ -7,6 +7,7 @@ import authRouter from './routes/auth.routes.js';
 import sessionMiddleware from './config/session.js';
 import requestId from './middleware/request-id.middleware.js';
 import notFound from './middleware/not-found.middleware.js';
+import dashboardRouter from './routes/dashboard.routes.js';
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(sessionMiddleware);
 app.use('/health', healthRoutes);
 app.use('/enquiry', enquiryRouter);
 app.use('/auth', authRouter);
+app.use('/dashboard', dashboardRouter);
 
 app.use(notFound);
 

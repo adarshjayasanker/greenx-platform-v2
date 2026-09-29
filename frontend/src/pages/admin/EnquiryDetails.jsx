@@ -56,10 +56,10 @@ const EnquiryDetails = () => {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <Link to="/greenx-admin/enquiries" className="text-sm text-gray-500 hover:text-gray-900">Back to Enquiries</Link>
+                    <Link to="/greenx-admin/leads" className="text-sm text-gray-500 hover:text-gray-900">Back to Leads</Link>
                     <h1 className="mt-3 text-2xl font-semibold text-gray-900">Enquiry Details</h1>
                 </div>
-                <EnquiryStatusBadge status={enquiry.status}/>
+                <EnquiryStatusBadge status={currentStatus}/>
             </div>
             {updateError && (
                 <div className="rounded-lg border border-red-200 bg-red-50 p-4">
