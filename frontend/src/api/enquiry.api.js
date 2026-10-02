@@ -36,4 +36,18 @@ const updateEnquiryStatus = async(id, status) => {
     });
 };
 
-export default {createEnquiry, getEnquiries, getEnquiryById, updateEnquiryStatus};
+const getEnquiryActivities = async(id) => {
+    return apiClient(`/enquiry/${id}/activities`);
+};
+
+const createEnquiryNote = async(id, message) => {
+    return apiClient(`/enquiry/${id}/activities`,{
+        method: "POST",
+        body: JSON.stringify({
+            type: "note",
+            message,
+        }),
+    });
+};
+
+export default {createEnquiry, getEnquiries, getEnquiryById, updateEnquiryStatus, getEnquiryActivities, createEnquiryNote};

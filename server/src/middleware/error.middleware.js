@@ -12,6 +12,13 @@ const errorHandler = (error, req, res, next) => {
     if(error.code === 11000){
         return res.status(409).json({success: false, message: "A record with this information already exists.", requestId: req.requestId,})
     }
+    if(error.statusCode){
+        return res.status(error.statusCode).json({
+            success: false,
+            message: error.message,
+            requestId: req.requestId,
+        });
+    }
     return res.status(500).json({success: false, message: "Something went wrong.", requestId: req.requestId,})
 }
 

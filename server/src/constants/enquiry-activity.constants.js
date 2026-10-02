@@ -1,0 +1,1 @@
+export const ENQUIRY_ACTIVITY_TYPES = ["note", "status-change"];

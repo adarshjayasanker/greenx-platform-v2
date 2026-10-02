@@ -1,4 +1,5 @@
 import Enquiry from "../models/enquiry.model.js";
+import EnquiryActivity from "../models/enquiry-activity.model.js";
 
 const enquiryServices = {
 
@@ -32,9 +33,23 @@ const enquiryServices = {
         return enquiry;
     },
 
-    updateEnquiryStatus: async(id, status) => {
-        const enquiry = await Enquiry.findByIdAndUpdate(id, {status}, {new: true, runValidators: true,});
-        return enquiry;
+    updateEnquiryStatus: async(id, status, adminId) => {
+        const enquiry = await Enquiry.findById(id);
+        if(!enquiry){
+            return null;
+        };
+        const previousStatus = enquiry.status;
+        if(previousStatus === status){
+            return enquiry;
+        }
+        const updatedEnquiry = await Enquiry.findByIdAndUpdate(id, {status}, {new: true, runValidators: true});
+        await EnquiryActivity.create({
+            enquiry: updatedEnquiry._id,
+            type: "status-change",
+            message: `Status changed from "${previousStatus}" to "${status}".`,
+            createdBy: adminId,
+        });
+        return updatedEnquiry;
     }
 };
 

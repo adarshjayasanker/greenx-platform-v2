@@ -3,6 +3,9 @@ import useEnquiry from "../../features/enquiries/hooks/useEnquiry";
 import { useState } from "react";
 import enquiryApi from "../../api/enquiry.api";
 import EnquiryStatusBadge from "../../features/enquiries/components/EnquiryStatusBadge";
+import useEnquiryActivities from "../../features/enquiries/hooks/useEnquiryActivities";
+import EnquiryActivityTimeline from "../../features/enquiries/components/EnquiryActivityTimeline";
+import EnquiryNoteForm from "../../features/enquiries/components/EnquiryNoteForm";
 
 const statuses = ["new", "contacted", "in-progress", "converted", "closed"];
 
@@ -10,10 +13,21 @@ const EnquiryDetails = () => {
     const {id} = useParams();
 
     const {enquiry, isLoading, error} = useEnquiry(id);
+    const {activities, isLoading: isActivitiesLoading, error: activitiesError, addNote} = useEnquiryActivities(id);
+    const [isAddingNote, setIsAddingNote] = useState(false);
     const [statusOverride, setStatusOverride] = useState(null);
     const [isUpdating, setIsUpdating] = useState(false);
     const [updateError, setUpdateError] = useState(null);
     const currentStatus = statusOverride ?? enquiry?.status;
+
+    const handleAddNote = async(message) => {
+        setIsAddingNote(true);
+        try{
+            await addNote(message);
+        }finally{
+            setIsAddingNote(false)
+        }
+    }
 
     const handleStatusChange = async(event) => {
         const nextStatus = event.target.value;
@@ -116,6 +130,14 @@ const EnquiryDetails = () => {
                             <p className="mt-1 text-sm text-gray-900">{enquiry.source}</p>
                         </div>
                     </div>
+                </section>
+                <section className="rounded-lg border border-gray-200 bg-white">
+                    <div className="border-b border-gray-200 px-6 py-4">
+                        <h2 className="text-lg font-semibold text-gray-900">Activity</h2>
+                        <p className="mt-1 text-sm text-gray-500">History of actions and notes for this enquiry.</p>
+                    </div>
+                    <EnquiryActivityTimeline activities={activities} isLoading={isActivitiesLoading} error={activitiesError}/>
+                    <EnquiryNoteForm onSubmit={handleAddNote} isSubmitting={isAddingNote}/>
                 </section>
             </div>
         </div>

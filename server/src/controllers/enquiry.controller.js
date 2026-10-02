@@ -58,7 +58,7 @@ const enquiryControllers = {
         };
         const {id} = req.params;
         const {status} = req.body;
-        const enquiry = await updateEnquiryStatus(id, status);
+        const enquiry = await updateEnquiryStatus(id, status, req.session.adminId);
         if(!enquiry){
             return res.status(404).json({
                 success: false,
