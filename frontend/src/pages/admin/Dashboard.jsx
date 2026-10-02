@@ -1,5 +1,6 @@
 import useDashboard from "../../features/dashboard/hooks/useDashboard";
 import { Link } from "react-router-dom";
+import formatEnquiryAge from "../../features/enquiries/utils/formatEnquiryAge";
 
 const Dashboard = () => {
     const {overview, isLoading, error} = useDashboard();
@@ -52,6 +53,35 @@ const Dashboard = () => {
             </div>
             <section className="rounded-lg border border-gray-200 bg-white">
                 <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+                    <div>
+                        <h2 className="text-lg font-semibold text-gray-900">Needs Attention</h2>
+                        <p className="mt-1 text-sm text-gray-500">New enquiries waiting for initial contact.</p>
+                    </div>
+                    <Link to='/greenx-admin/leads?status=new' className="text-sm font-medium text-gray-700 hover:text-gray-900">View all</Link>
+                </div>
+                <div className="divide-y divide-gray-200">
+                    {overview.attentionEnquiries.length === 0 ? (
+                        <div className="p-6">
+                            <p className="text-sm text-gray-500">No enquiries need attention right now.</p>
+                        </div>
+                    ) : (
+                        overview.attentionEnquiries.map((enquiry) => (
+                            <Link key={enquiry.id} to={`/greenx-admin/leads/${enquiry.id}`} className="flex items-center justify-between gap-4 px-6 py-4 transition hover:bg-gray-50">
+                                <div className="min-w-0">
+                                    <p className="truncate text-sm font-medium text-gray-900">{enquiry.name}</p>
+                                    <p className="mt-1 text-xs text-gray-500">{enquiry.service}</p>
+                                </div>
+                                <div className="shrink-0 text-right">
+                                    <p className="text-xs font-medium text-gray-500">New</p>
+                                    <p className="mt-1 text-xs text-gray-400">{formatEnquiryAge(enquiry.createdAt)}</p>
+                                </div>
+                            </Link>
+                        ))
+                    )} 
+                </div>
+            </section>
+            <section className="rounded-lg border border-gray-200 bg-white">
+                <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
                     <h2 className="text-lg font-semibold text-gray-900">Recent Enquiries</h2>
                     <Link to='/greenx-admin/leads' className="text-sm font-medium text-gray-700 hover:text-gray-900">View all</Link>
                 </div>
@@ -68,7 +98,7 @@ const Dashboard = () => {
                                     <p className="mt-1 text-xs text-gray-500">{enquiry.service}</p>
                                 </div>
                                 <p className="shrink-0 text-xs text-gray-500">
-                                    {new Date(enquiry.createdAt).toLocaleDateString()};
+                                    {formatEnquiryAge(enquiry.createdAt)}
                                 </p>
                             </Link>
                         ))
