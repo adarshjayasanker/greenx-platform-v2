@@ -15,7 +15,6 @@ const EnquiryTable = ({enquiries}) => {
                     <thead className="border-b border-gray-200 bg-gray-50">
                         <tr>
                             <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Customer</th>
-                            <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Phone</th>
                             <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Service</th>
                             <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Status</th>
                             <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Received</th>
