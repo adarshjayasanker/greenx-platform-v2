@@ -6,6 +6,7 @@ import EnquiryStatusBadge from "../../features/enquiries/components/EnquiryStatu
 import useEnquiryActivities from "../../features/enquiries/hooks/useEnquiryActivities";
 import EnquiryActivityTimeline from "../../features/enquiries/components/EnquiryActivityTimeline";
 import EnquiryNoteForm from "../../features/enquiries/components/EnquiryNoteForm";
+import getEnquiryStatusDescription from "../../features/enquiries/utils/getEnquiryStatusDescription";
 
 const statuses = ["new", "contacted", "in-progress", "converted", "closed"];
 
@@ -19,6 +20,7 @@ const EnquiryDetails = () => {
     const [isUpdating, setIsUpdating] = useState(false);
     const [updateError, setUpdateError] = useState(null);
     const currentStatus = statusOverride ?? enquiry?.status;
+    const statusDescription = getEnquiryStatusDescription(currentStatus);
 
     const handleAddNote = async(message) => {
         setIsAddingNote(true);
@@ -110,6 +112,10 @@ const EnquiryDetails = () => {
                             <option key={status} value={status}>{status}</option>
                         ))}
                     </select>
+                    <p className="mt-2 text-sm text-gray-500">{statusDescription}</p>
+                    {currentStatus === "new" && (
+                        <button type="button" onClick={() => {handleStatusChange({target: {value: "contacted"}})}} disabled={isUpdating} className="mt-4 rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50">{isUpdating ? "Updating..." : "Mark as contacted"}</button>
+                    )}
                     {isUpdating && (
                         <p className="mt-2 text-xs text-gray-500">Updating status...</p>
                     )}
