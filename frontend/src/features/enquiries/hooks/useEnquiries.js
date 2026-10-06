@@ -7,6 +7,7 @@ const useEnquiries = ({
     limit = 20,
     status = "",
     search = "",
+    attention = false,
 } = {}) => {
 
     const [enquiries, setEnquiries] = useState([]);
@@ -21,7 +22,7 @@ const useEnquiries = ({
         const loadEnquiries = async() => {
             setIsLoading(true);
             try{
-                const response = await enquiryApi.getEnquiries({page, limit, status, search,});
+                const response = await enquiryApi.getEnquiries({page, limit, status, search, attention});
                 if(isCancelled){
                     return;
                 }
@@ -44,7 +45,7 @@ const useEnquiries = ({
         return() => {
             isCancelled = true;
         };
-    }, [page, limit, status, search]);
+    }, [page, limit, status, search, attention]);
     const totalPages = Math.ceil(total/limit);
     return{enquiries, total, totalPages, isLoading, error};
 }

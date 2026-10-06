@@ -12,6 +12,7 @@ const getEnquiries = async({
     limit = 20,
     status = "",
     search = "",
+    attention = false,
 } = {}) => {
     const params = new URLSearchParams();
     params.set("page", page);
@@ -21,6 +22,9 @@ const getEnquiries = async({
     }
     if(search){
         params.set("search", search);
+    }
+    if(attention){
+        params.set("attention", true);
     }
     return apiClient(`/enquiry?${params.toString()}`);
 };
@@ -50,4 +54,13 @@ const createEnquiryNote = async(id, message) => {
     });
 };
 
-export default {createEnquiry, getEnquiries, getEnquiryById, updateEnquiryStatus, getEnquiryActivities, createEnquiryNote};
+const updateEnquiryFollowUp = async(id, followUpAt) => {
+    return apiClient(`/enquiry/${id}/follow-up`, {
+        method: "PATCH",
+        body: JSON.stringify({
+            followUpAt,
+        }),
+    });
+};
+
+export default {createEnquiry, getEnquiries, getEnquiryById, updateEnquiryStatus, getEnquiryActivities, createEnquiryNote, updateEnquiryFollowUp};

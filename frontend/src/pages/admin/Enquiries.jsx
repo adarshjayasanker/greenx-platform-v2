@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import useEnquiries from "../../features/enquiries/hooks/useEnquiries";
 import EnquiryFilters from "../../features/enquiries/components/EnquiryFilters";
 import EnquiryTable from "../../features/enquiries/components/EnquiryTable";
@@ -8,7 +10,9 @@ const Enquiries = () => {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState("");
     const [status, setStatus] = useState("");
-    const {enquiries, total, totalPages, isLoading, error} = useEnquiries({page: 1, limit:20, status, search});
+    const [searchParams] = useSearchParams();
+    const attention = searchParams.get("attention") === "true";
+    const {enquiries, total, totalPages, isLoading, error} = useEnquiries({page, limit:20, status, search, attention});
     const handleSearchChange = (value) => {
         setSearch(value);
         setPage(1);
@@ -21,7 +25,7 @@ const Enquiries = () => {
         <div className="space-y-6">
             <div>
                 <h1 className="text-2xl font-semibold text-gray-900">Enquiries</h1>
-                <p className="mt-1 text-sm text-gray-500">Manage enquiries received from the website.</p>
+                <p className="mt-1 text-sm text-gray-500">{attention ? "Enquiries that need attention." : "Manage enquiries received from the website"}</p>
             </div>
             <EnquiryFilters search={search} status={status} onSearchChange={handleSearchChange} onStatusChange={handleStatusChange}/>
             {isLoading && (

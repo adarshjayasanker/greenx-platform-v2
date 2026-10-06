@@ -1,1 +1,1 @@
-export const ENQUIRY_ACTIVITY_TYPES = ["note", "status-change"];
+export const ENQUIRY_ACTIVITY_TYPES = ["note", "status-change", "follow-up"];

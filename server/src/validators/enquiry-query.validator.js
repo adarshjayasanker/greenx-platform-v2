@@ -5,6 +5,10 @@ const validateGetEnquiries = (query) => {
     const page = Number(query.page ?? 1);
     const limit = Number(query.limit ?? 20);
     const search = typeof query.search === "string" ? query.search.trim() : "";
+    const attention = query.attention === "true";
+    if(query.attention !== undefined && !["true", "false"].includes(query.attention)){
+        errors.attention = "Attention must be true or false.";
+    }
     if(!Number.isInteger(page) || page < 1){
         errors.page = "Page must be a positive integer.";
     }
@@ -18,7 +22,7 @@ const validateGetEnquiries = (query) => {
     return{
         errors,
         values: {
-            page, limit, status: query.status, search,
+            page, limit, status: query.status, search, attention,
         },
     };
 };

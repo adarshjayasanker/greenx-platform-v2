@@ -40,6 +40,11 @@ const enquirySchema = new mongoose.Schema(
             default: "new",
         },
 
+        followUpAt: {
+            type: Date,
+            default: null,
+        },
+
         source: {
             type: String,
             enum: ["website"],

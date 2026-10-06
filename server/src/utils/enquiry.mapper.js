@@ -8,6 +8,7 @@ const toEnquiryResponse = (enquiry) => {
         message: enquiry.message,
         status: enquiry.status,
         source: enquiry.source,
+        followUpAt: enquiry.followUpAt,
         createdAt: enquiry.createdAt,
         updatedAt: enquiry.updatedAt,
     };

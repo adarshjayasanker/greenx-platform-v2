@@ -7,6 +7,8 @@ import useEnquiryActivities from "../../features/enquiries/hooks/useEnquiryActiv
 import EnquiryActivityTimeline from "../../features/enquiries/components/EnquiryActivityTimeline";
 import EnquiryNoteForm from "../../features/enquiries/components/EnquiryNoteForm";
 import getEnquiryStatusDescription from "../../features/enquiries/utils/getEnquiryStatusDescription";
+import useEnquiryFollowUp from "../../features/enquiries/hooks/useEnquiryFollowUp";
+import EnquiryFollowUp from "../../features/enquiries/components/EnquiryFollowUp";
 
 const statuses = ["new", "contacted", "in-progress", "converted", "closed"];
 
@@ -21,6 +23,7 @@ const EnquiryDetails = () => {
     const [updateError, setUpdateError] = useState(null);
     const currentStatus = statusOverride ?? enquiry?.status;
     const statusDescription = getEnquiryStatusDescription(currentStatus);
+    const {followUpAt, isUpdating: isFollowUpUpdating, error: followUpError, updateFollowUp} = useEnquiryFollowUp(enquiry);
 
     const handleAddNote = async(message) => {
         setIsAddingNote(true);
@@ -120,6 +123,7 @@ const EnquiryDetails = () => {
                         <p className="mt-2 text-xs text-gray-500">Updating status...</p>
                     )}
                 </section>
+                <EnquiryFollowUp followUpAt={followUpAt} isUpdating={isFollowUpUpdating} error={followUpError} onUpdate={updateFollowUp}/>
                 <section className="rounded-lg border border-gray-200 bg-white p-6 lg:col-span-3">
                     <h2 className="text-lg font-semibold">Enquiry Message</h2>
                     <p className="mt-4 whitespace-pre-wrap text-sm leading-6 text-gray-700">{enquiry.message}</p>
