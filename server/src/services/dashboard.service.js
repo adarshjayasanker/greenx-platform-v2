@@ -20,7 +20,9 @@ const getOverview = async() => {
 
                                                 Enquiry.find().sort({createdAt: -1, _id: -1}).limit(5),
                                                 Enquiry.find({$or: [{status: "new"}, {followUpAt: {$ne: null, $lte: now,}}]}).sort({createdAt: -1, _id: -1}).limit(5),
-                                                ])
+                                                ]);
+            const activeEnquiries = contactedEnquiries + inProgressEnquiries;
+            const conversionRate = totalEnquiries === 0 ? 0 : (convertedEnquiries / totalEnquiries) * 100;
     return{
         totalEnquiries,
         newEnquiries,
@@ -28,7 +30,8 @@ const getOverview = async() => {
         inProgressEnquiries,
         convertedEnquiries,
         closedEnquiries,
-
+        activeEnquiries,
+        conversionRate,
         recentEnquiries: recentEnquiries.map(toEnquiryResponse),
         attentionEnquiries: attentionEnquiries.map(toEnquiryResponse),
     };

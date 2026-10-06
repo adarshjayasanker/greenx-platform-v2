@@ -7,6 +7,8 @@ import formatFollowUpDate from "../../features/enquiries/utils/formatFollowUpDat
 const Dashboard = () => {
     const {overview, isLoading, error} = useDashboard();
 
+    const conversionRate = Number(overview?.conversionRate || 0);
+
     if(isLoading){
         return(
             <div className="rounded-lg border border-gray-200 bg-white p-8">
@@ -53,6 +55,32 @@ const Dashboard = () => {
                     <p className="mt-2 text-3xl font-semibold text-gray-900">{overview.closedEnquiries}</p>
                 </div>
             </div>
+            <section className="rounded-lg border border-gray-200 bg-white">
+                <div className="border-b border-gray-200 px-6 py-4">
+                    <h2 className="text-lg font-semibold text-gray-900">Pipeline & Conversion</h2>
+                    <p className="mt-1 text-sm text-gray-500">Current pipeline and enquiry conversion performance.</p>
+                </div>
+                <div className="grid gap-4 p-6 sm:grid-cols-3">
+                    <div>
+                        <p className="text-sm text-gray-500">Converted</p>
+                        <p className="mt-2 text-2xl font-semibold text-gray-900">{overview.convertedEnquiries}</p>
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500">Active Pipeline</p>
+                        <p className="mt-2 text-2xl font-semibold text-gray-900">{overview.activeEnquiries}</p>
+                    </div>
+                    <div>
+                        <p className="text-sm text-gray-500">Closed</p>
+                        <p className="mt-2 text-2xl font-semibold text-gray-900">{overview.closedEnquiries}</p>
+                    </div>
+                </div>
+                <div className="border-t border-gray-200 px-6 py-5">
+                    <p className="text-sm text-gray-500">Conversion Rate</p>
+                    <p className="mt-2 text-3xl font-semibold text-gray-900">{conversionRate.toFixed(1)}%</p>
+                    <p className="mt-1 text-xs text-gray-500">Converted enquiries ÷ total enquiries</p>
+                    <p className="mt-1 text-xs text-gray-500">{overview.convertedEnquiries} of{" "}{overview.totalEnquiries} enquiries converted.</p>
+                </div>
+            </section>
             <section className="rounded-lg border border-gray-200 bg-white">
                 <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
                     <div>
