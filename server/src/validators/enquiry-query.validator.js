@@ -12,7 +12,7 @@ const validateGetEnquiries = (query) => {
     if(!Number.isInteger(page) || page < 1){
         errors.page = "Page must be a positive integer.";
     }
-    if(!Number.isInteger(limit) || limit > 100){
+    if(!Number.isInteger(limit) || limit < 1 || limit > 100){
         errors.limit = "Limit must be an integer between 1 and 100.";
     }
     if(query.status !== undefined && !ENQUIRY_STATUSES.includes(query.status)) {errors.status = "Invalid enquiry status."}

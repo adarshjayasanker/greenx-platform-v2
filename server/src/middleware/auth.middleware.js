@@ -8,7 +8,6 @@ const requireAuth = async(req, res, next) => {
         });
     }
     const admin = await Admin.findById(req.session.adminId);
-    console.log(admin);
     if(!admin){
         req.session.destroy(() => {});
         return res.status(401).json({

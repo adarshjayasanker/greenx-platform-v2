@@ -11,19 +11,36 @@ const login = async(req, res) => {
         });
     };
     const {email, password} = req.body;
-    const admin = await authService.authenticateAdmin(email, password);
+    const admin = await authService.authenticateAdmin(email.trim().toLowerCase(), password);
     if(!admin){
         return res.status(401).json({
             success: false,
             message: "Invalid email or password."
         });
     }
+    await new Promise((resolve, reject) => {
+        req.session.regenerate((error) => {
+            if(error){
+                reject(error);
+                return;
+            };
+            resolve();
+        });
+    });
     req.session.adminId = admin._id.toString();
+    await new Promise((resolve, reject) => {
+        req.session.save((error) => {
+            if(error){
+                reject(error);
+                return;
+            };
+            resolve();
+        });
+    });
     return res.status(200).json({
         success: true,
         message: "Credentials verified.",
-        cookie: req.session.adminId,
-    })
+    });
 };
 
 const getCurrentAdmin = async(req, res) => {
