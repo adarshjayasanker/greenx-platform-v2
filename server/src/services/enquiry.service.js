@@ -4,7 +4,14 @@ import EnquiryActivity from "../models/enquiry-activity.model.js";
 const enquiryServices = {
 
     createEnquiry: async(data) => {
-        const enquiry = await Enquiry.create(data);
+        const enquiryData = {
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            service: data.service,
+            message: data.message,
+        }
+        const enquiry = await Enquiry.create(enquiryData);
         return enquiry;
     },
 

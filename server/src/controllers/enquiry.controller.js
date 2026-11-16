@@ -14,7 +14,14 @@ const enquiryControllers = {
         if(Object.keys(errors).length > 0){
             return res.status(400).json({success: false, message: "Please correct the highlighted fields", errors})
         }
-        const enquiry = await createEnquiry(req.body);
+        const enquiryData = {
+            name: req.body.name.trim(),
+            phone: req.body.phone.trim(),
+            email: req.body.email.trim().toLowerCase(),
+            service: req.body.service.trim(),
+            message: req.body.message.trim(),
+        }
+        const enquiry = await createEnquiry(enquiryData);
         return res.status(201).json({success: true, message: "Enquiry submitted successfully.", data: enquiry});
     }, 
 
